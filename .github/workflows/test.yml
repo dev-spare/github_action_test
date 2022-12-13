@@ -35,6 +35,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          ref: ${{ inputs.fastlane }}
+          ref: ${{ inputs.branches }}
       - name: Run a one-line script
-        run: echo ${{ inputs.branches }}
+        run: echo ${{ inputs.fastlane }}
