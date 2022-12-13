@@ -9,9 +9,17 @@ on:
       branches:
         required: true
         default: 'dev'
+        type: choice
         options:
           - main
           - dev
+      fastlane:
+        required: true
+        default: 'beta'
+        type: choice
+        options:
+          - beta
+          - release
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,9 +35,4 @@ jobs:
         with:
           ref: ${{ inputs.branches }}
       - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        run: echo ${{ inputs.branches }}
